@@ -41,11 +41,12 @@ In the *Workflow* section make sure that the first option is selected - *Inline 
     image: codefresh/cfstep-aqua
     stage: test
     environment:
-      - 'AQUA_HOST=${{AQUA_HOST}}'
-      - 'AQUA_PASSWORD=${{AQUA_PASSWORD}}'
-      - 'AQUA_USERNAME=${{AQUA_USERNAME}}'
-      - IMAGE=${{build}}
-      - TAG=latest
+      - AQUA_HOST=${{AQUA_HOST}}
+      - AQUA_PASSWORD=${{AQUA_PASSWORD}}
+      - AQUA_USERNAME=${{AQUA_USERNAME}}
+      - IMAGE=${{CF_REPO_OWNER}}/${{CF_REPO_NAME}}
+      - TAG=${{CF_BRANCH_TAG_NORMALIZED}}-${{CF_SHORT_REVISION}}
+      - REGISTRY=codefresh
 
 {% endraw %}            
 ```
